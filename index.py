@@ -6,10 +6,9 @@ app = Flask(__name__)
 
 
 
-
-@app.route("/open")
+@app.route("/")
 def index():
-   return 'People Detection',openCamera()   
+   return 'People Detection', openCamera() 
 
 
 

@@ -110,8 +110,10 @@ def openCamera():
             agePreds = age_Network.forward()
             age.append(AGE_RANGES[agePreds[0].argmax()]); 
             #print(f"Number of people: {len(detected_faces)}");
+
+            count=len(detected_faces);
             
-            totalCount=len(detected_faces);
+            totalCount=totalCount + len(detected_faces);
 
             print(f"Total Number of people= {totalCount}");
             
@@ -122,10 +124,10 @@ def openCamera():
             
     
             # field names 
-            fields = ['Date','Time','Total People'] 
+            fields = ['Date','Time','People on that duration','Total People'] 
                 
             # data rows of csv file 
-            rows = [ [date_str, time_str, totalCount]] 
+            rows = [ [date_str, time_str, count, totalCount]] 
                 
             # name of csv file 
             filename = "people_records.csv"
